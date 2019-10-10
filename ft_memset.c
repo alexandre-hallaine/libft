@@ -6,7 +6,7 @@
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 19:30:12 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/09 19:33:42 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/10 15:29:27 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	(void) b;
-	(void) c;
-	(void) len;
+	char *str;
+
+	str = b;
+	while (len--)
+	{
+		str[len] = c;
+	}
 	return (b);
 }

@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 18:13:03 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/10 15:44:21 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/10 15:22:59 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/10 15:36:03 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+int		ft_isprint(int c)
+{
+	int c1;
 
-void	*ft_memset(void *b, int c, size_t len);
-void	*ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
-void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
+	c1 = c % 10;
+	if (c >= 40 && c <= 176 && c1 >= 0 && c1 <= 7)
+		return (1);
+	return (0);
+}
