@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 19:45:18 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/11 16:14:57 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/11 15:29:57 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/11 15:34:54 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strchr(const char *s, int c)
+size_t	ft_strlen(const char *s)
 {
-	char	*str;
+	size_t		len;
 
-	str = (char*)s;
-	while (*str || !c)
-	{
-		if (*str == c)
-			return (str);
-		str++;
-	}
-	return (NULL);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

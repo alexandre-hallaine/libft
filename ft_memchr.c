@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 19:45:18 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/11 16:14:57 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/11 15:34:17 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/11 15:52:28 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str;
+	const unsigned char	*us;
+	unsigned char uc;
 
-	str = (char*)s;
-	while (*str || !c)
-	{
-		if (*str == c)
-			return (str);
-		str++;
-	}
+	us = s;
+	uc = c;
+	while (n--)
+		if (*us++ == uc)
+			return ((void*)--us);
 	return (NULL);
 }

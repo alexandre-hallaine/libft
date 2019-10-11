@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 19:45:18 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/11 16:14:57 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/11 16:02:14 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/11 16:29:34 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strchr(const char *s, int c)
+char *ft_strrchr(const char *s, int c)
 {
-	char	*str;
+	char	*us;
+	char	*last;
 
-	str = (char*)s;
-	while (*str || !c)
+	us = (char*)s;
+	last = NULL;
+	while (*us || !c)
 	{
-		if (*str == c)
-			return (str);
-		str++;
+		if (!*us)
+			return (us);
+		if (*us == (char)c)
+			last = us;
+		us++;
 	}
-	return (NULL);
+	return (last);
 }
