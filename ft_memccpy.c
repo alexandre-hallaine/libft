@@ -6,7 +6,7 @@
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:03:24 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/10 15:28:13 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/10 17:24:21 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 void	*ft_memccpy(void *restrict dst, const void *restrict src, int c,
 		size_t n)
 {
-	char	*str;
+	unsigned char		*udst;
+	const unsigned char *usrc;
 
-	str = dst;
-	while (n--)
+	udst = dst;
+	usrc = src;
+	while (n)
 	{
-		if (*((char*)src) == c)
-			return (str);
-		*str = *((char*)src);
-		str++;
-		src++;
+		if (*usrc == (unsigned char)c)
+		{
+			*udst++ = *usrc++;
+			return (udst);
+		}
+		*udst++ = *usrc++;
+		n--;
 	}
-	return (dst);
+	return (NULL);
 }

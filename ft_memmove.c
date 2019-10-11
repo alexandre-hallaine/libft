@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 14:55:28 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/10 17:24:23 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/10 19:01:10 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/11 15:26:31 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*str;
+	unsigned char		*udst;
+	const unsigned char	*usrc;
+	unsigned char		temp;
+	size_t				index;
 
 	if (dst == NULL && src == NULL)
-		return (dst);
-	str = dst;
-	while (n--)
-	{
-		str[n] = ((char*)src)[n];
-	}
+		return (NULL);
+	udst = dst;
+	usrc = src;
+	index = len;
+	if (usrc > udst)
+		while (len--)
+		{
+			temp = *usrc++;
+			*udst++ = temp;
+		}
+	else
+		while (index)
+		{
+			index--;
+			temp = usrc[index];
+			udst[index] = temp;
+		}
 	return (dst);
 }

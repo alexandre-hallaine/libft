@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 19:30:12 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/10 17:00:37 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/10 16:31:25 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/10 16:32:46 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_memset(void *b, int c, size_t len)
+int		ft_tolower(int c)
 {
-	char *str;
-
-	str = b;
-	while (len--)
-	{
-		str[len] = c;
-	}
-	return (b);
+	if (c >= 'A' && c <= 'Z')
+		c += 'a' - 'A';
+	return (c);
 }
