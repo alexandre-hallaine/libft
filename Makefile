@@ -1,10 +1,11 @@
-SRCS	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_memmove.c ft_strchr.c ft_strlen.c ft_memchr.c ft_memcmp.c ft_strrchr.c ft_strncmp.c ft_strlcpy.c
+SRCS	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_memmove.c ft_strchr.c ft_strlen.c ft_memchr.c ft_memcmp.c ft_strrchr.c ft_strncmp.c ft_strlcpy.c ft_strlcat.c
 OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
+RM = rm -f
 
-.a.o:
+.c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
@@ -14,10 +15,10 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	rm ${OBJS}
+	${RM} ${OBJS}
 
 fclean: clean
-	rm ${NAME}
+	${RM} ${NAME}
 
 re: fclean all
 
