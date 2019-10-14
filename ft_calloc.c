@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 19:01:10 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/14 16:47:13 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/14 17:50:22 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/14 17:58:34 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void    *ft_calloc(size_t count, size_t size)
 {
-	unsigned char		*udst;
-	const unsigned char	*usrc;
-	unsigned char		temp;
-	size_t				index;
+    void    *tab;
 
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	udst = dst;
-	usrc = src;
-	index = len;
-	if (usrc > udst)
-		while (index--)
-		{
-			temp = *usrc++;
-			*udst++ = temp;
-		}
-	else
-		while (index--)
-		{
-			temp = usrc[index];
-			udst[index] = temp;
-		}
-	return (dst);
+    if (!count || !size)
+        return (NULL);
+   tab = malloc(count * size);
+    while (count--)
+        *(char*)tab++ = 0;
+    return (tab);
 }

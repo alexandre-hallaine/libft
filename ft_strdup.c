@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 19:01:10 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/14 16:47:13 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/14 17:59:13 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/14 18:24:21 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char *ft_strdup(const char *s1)
 {
-	unsigned char		*udst;
-	const unsigned char	*usrc;
-	unsigned char		temp;
-	size_t				index;
+    char    *s2;
+    size_t  index;
+    size_t  len;
 
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	udst = dst;
-	usrc = src;
-	index = len;
-	if (usrc > udst)
-		while (index--)
-		{
-			temp = *usrc++;
-			*udst++ = temp;
-		}
-	else
-		while (index--)
-		{
-			temp = usrc[index];
-			udst[index] = temp;
-		}
-	return (dst);
+    len  = 0;
+    while (s1[len])
+        len++;
+    if (!(s2 = malloc(sizeof(char) * (len + 1))))
+        return (NULL);
+    index = 0;
+    while (s1[index])
+    {
+        s2[index] = s1[index];
+        index++;
+    }
+    s2[index] = 0;
+    return (s2);
 }
