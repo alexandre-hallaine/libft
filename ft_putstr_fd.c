@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 16:02:14 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/16 19:15:04 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/16 19:40:44 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/16 19:42:06 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*us;
-	char	*last;
+	size_t len;
 
-	us = (char *)s;
-	last = NULL;
-	while (*us || !c)
-	{
-		if (!*us)
-			return (us);
-		if (*us == (char)c)
-			last = us;
-		us++;
-	}
-	return (last);
+	len = 0;
+	while (s[len])
+		len++;
+	write(fd, s, len);
 }

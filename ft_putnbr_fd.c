@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 16:02:14 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/16 19:15:04 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/16 19:51:46 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/16 20:02:18 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*us;
-	char	*last;
+	char	c;
 
-	us = (char *)s;
-	last = NULL;
-	while (*us || !c)
+	if (n < 0)
 	{
-		if (!*us)
-			return (us);
-		if (*us == (char)c)
-			last = us;
-		us++;
+		write(fd, "-", 1);
+		if (n == -2147483648)
+		{
+			write(fd, "2", 1);
+			n = -147483648;
+		}
+		n *= -1;
 	}
-	return (last);
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	c = n % 10 + '0';
+	write(fd, &c, 1);
 }

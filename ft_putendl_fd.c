@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 16:02:14 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/16 19:15:04 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/16 19:47:06 by ahallain          #+#    #+#             */
+/*   Updated: 2019/10/16 19:49:06 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*us;
-	char	*last;
+	size_t len;
 
-	us = (char *)s;
-	last = NULL;
-	while (*us || !c)
-	{
-		if (!*us)
-			return (us);
-		if (*us == (char)c)
-			last = us;
-		us++;
-	}
-	return (last);
+	len = 0;
+	while (s[len])
+		len++;
+	write(fd, s, len);
+	write(fd, "\n", 1);
 }
