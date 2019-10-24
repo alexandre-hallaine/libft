@@ -6,11 +6,10 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:59:13 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/16 19:14:27 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/24 16:41:41 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdlib.h>
 
 char	*ft_strdup(const char *s1)

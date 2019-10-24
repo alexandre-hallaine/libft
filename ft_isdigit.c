@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:17:55 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/10 15:21:19 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/23 17:52:04 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <ctype.h>
 
 int		ft_isdigit(int c)
 {

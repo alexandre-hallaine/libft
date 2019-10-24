@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:16:02 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/10 15:33:38 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/23 17:50:00 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <ctype.h>
 
 int		ft_isalpha(int c)
 {

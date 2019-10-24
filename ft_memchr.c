@@ -6,11 +6,11 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:34:17 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/20 17:21:54 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/23 17:56:20 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

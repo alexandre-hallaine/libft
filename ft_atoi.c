@@ -6,14 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:07:57 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/17 16:21:34 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/23 17:43:14 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-int	getnbr(const char *str, int multiply)
+static int	getnbr(const char *str, int multiply)
 {
 	long	nbr;
 
@@ -38,7 +37,7 @@ int	getnbr(const char *str, int multiply)
 	return (nbr * multiply);
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	int	multiply;
 

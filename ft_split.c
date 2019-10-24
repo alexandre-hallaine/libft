@@ -6,13 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 17:12:00 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/23 15:37:34 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/24 15:30:25 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-size_t	ft_count1(char const *s, char c)
+static size_t	ft_count(char const *s, char c)
 {
 	size_t	index;
 	size_t	len;
@@ -40,7 +40,7 @@ size_t	ft_count1(char const *s, char c)
 	return (count);
 }
 
-char	*ft_write(char const *s, size_t index, size_t len)
+static char		*ft_write(char const *s, size_t index, size_t len)
 {
 	char	*str;
 	size_t	index1;
@@ -54,7 +54,7 @@ char	*ft_write(char const *s, size_t index, size_t len)
 	return (str);
 }
 
-char	**ft_set(char const *s, char c, char **tab)
+static char		**ft_set(char const *s, char c, char **tab)
 {
 	size_t	index;
 	size_t	index1;
@@ -83,11 +83,11 @@ char	**ft_set(char const *s, char c, char **tab)
 	return (tab);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**tab;
 
-	if (!(tab = malloc(sizeof(char*) * (ft_count1(s, c) + 1))))
+	if (!(tab = malloc(sizeof(char*) * (ft_count(s, c) + 1))))
 		return (NULL);
 	tab = ft_set(s, c, tab);
 	return (tab);

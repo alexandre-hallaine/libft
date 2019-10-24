@@ -6,12 +6,11 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:50:22 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/17 15:47:24 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/24 16:11:14 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

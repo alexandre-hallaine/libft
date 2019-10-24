@@ -6,14 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 19:01:37 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/19 20:19:07 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/23 17:54:30 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-size_t	ft_count(int n)
+static size_t	ft_count(int n)
 {
 	size_t count;
 
@@ -37,7 +36,7 @@ size_t	ft_count(int n)
 	return (count + 1);
 }
 
-char	*ft_setnbr(int n, char *nbr)
+static char		*ft_setnbr(int n, char *nbr)
 {
 	size_t	index;
 
@@ -63,7 +62,7 @@ char	*ft_setnbr(int n, char *nbr)
 	return (nbr);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char *nbr;
 

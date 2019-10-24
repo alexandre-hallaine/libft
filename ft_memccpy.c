@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:03:24 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/10 17:24:21 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/23 17:56:09 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src, int c,
+void	*ft_memccpy(void *dst, const void *src, int c,
 		size_t n)
 {
 	unsigned char		*udst;
