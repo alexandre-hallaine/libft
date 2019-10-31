@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:03:24 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/23 17:56:09 by ahallain         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:34:31 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memccpy(void *dst, const void *src, int c,
 
 	udst = dst;
 	usrc = src;
-	while (n)
+	while (n--)
 	{
 		if (*usrc == (unsigned char)c)
 		{
@@ -28,7 +28,6 @@ void	*ft_memccpy(void *dst, const void *src, int c,
 			return (udst);
 		}
 		*udst++ = *usrc++;
-		n--;
 	}
 	return (NULL);
 }
