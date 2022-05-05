@@ -6,20 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 19:37:43 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/23 17:47:26 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/05 02:37:28 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*str;
-
-	str = s;
-	while (n--)
-	{
-		*str = 0;
-		str++;
-	}
+	ft_memset(s, 0, n);
 }
