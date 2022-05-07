@@ -6,11 +6,9 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:07:57 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 01:21:07 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 01:24:00 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
