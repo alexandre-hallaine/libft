@@ -20,8 +20,6 @@ SRCS		=	ft_isalpha.c \
 				ft_memchr.c \
 				ft_memcmp.c \
 				ft_strnstr.c \
-				ft_memccpy.c \
-				ft_isprint.c \
 				ft_atoi.c \
 				ft_calloc.c \
 				ft_strdup.c \
@@ -34,8 +32,8 @@ SRCS		=	ft_isalpha.c \
 				ft_putendl_fd.c \
 				ft_putnbr_fd.c \
 				ft_itoa.c \
-				ft_strmapi.c \
 				ft_strmapi.c
+
 OBJS		=	${SRCS:.c=.o}
 
 COMPILER	=	gcc -Wall -Wextra -Werror -ofast

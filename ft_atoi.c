@@ -6,50 +6,26 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:07:57 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/23 17:43:14 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 01:21:07 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int	getnbr(const char *str, int multiply)
+int	ft_atoi(const char *nptr)
 {
-	long	nbr;
+	int	sign;
+	int	nbr;
 
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	sign = 1;
+	if (*nptr == '-')
+		sign = -1;
 	nbr = 0;
-	while (*str)
-	{
-		if (*str >= '0' && *str <= '9')
-		{
-			nbr *= 10;
-			nbr += *str - '0';
-			if (nbr < 0)
-			{
-				if (multiply == 1)
-					return (-1);
-				return (0);
-			}
-		}
-		else
-			return (nbr * multiply);
-		str++;
-	}
-	return (nbr * multiply);
-}
-
-int			ft_atoi(const char *str)
-{
-	int	multiply;
-
-	multiply = 1;
-	while (*str == '\t' || *str == '\n' || *str == '\v'
-		|| *str == '\f' || *str == '\r' || *str == ' ')
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			multiply = -1;
-		str++;
-	}
-	return (getnbr(str, multiply));
+	if (*nptr == '+' || *nptr == '-')
+		nptr++;
+	while (*nptr >= '0' && *nptr <= '9')
+		nbr = nbr * 10 + (*nptr++ - '0');
+	return (nbr * sign);
 }
