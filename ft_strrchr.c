@@ -6,26 +6,19 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 16:02:14 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/24 18:22:09 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/07 23:50:16 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*us;
-	char	*last;
+	size_t	index;
 
-	us = (char *)s;
-	last = NULL;
-	while (*us || !c)
-	{
-		if (!*us)
-			return (us);
-		if (*us == (char)c)
-			last = us;
-		us++;
-	}
-	return (last);
+	index = ft_strlen(s);
+	while (index-- || !c)
+		if (s[index] == c)
+			return ((char *)s + index);
+	return (NULL);
 }
