@@ -12,10 +12,10 @@ SRCS		=	ft_isalpha.c \
 				ft_memmove.c \
 				ft_strlcpy.c \
 				ft_strlcat.c \
-				ft_memccpy.c \
-				ft_isprint.c \
 				ft_toupper.c \
 				ft_tolower.c \
+				ft_memccpy.c \
+				ft_isprint.c \
 				ft_strchr.c \
 				ft_memchr.c \
 				ft_memcmp.c \
@@ -38,7 +38,7 @@ SRCS		=	ft_isalpha.c \
 				ft_strmapi.c
 OBJS		=	${SRCS:.c=.o}
 
-COMPILER	=	gcc -Wall -Wextra -Werror
+COMPILER	=	gcc -Wall -Wextra -Werror -ofast
 
 all: $(NAME)
 
