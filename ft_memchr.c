@@ -6,21 +6,16 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:34:17 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/23 17:56:20 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 00:18:38 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*us;
-	unsigned char		uc;
-
-	us = s;
-	uc = c;
 	while (n--)
-		if (*us++ == uc)
-			return ((void *)--us);
+		if (*(char *)s++ == c)
+			return ((void *)--s);
 	return (NULL);
 }
