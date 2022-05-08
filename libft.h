@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:13:03 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 11:31:58 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 14:20:52 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-
 char	*ft_strtrim(char const *s1, char const *set);
+
 char	**ft_split(char const *s, char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
