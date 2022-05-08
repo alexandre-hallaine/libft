@@ -6,18 +6,15 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 19:40:44 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/16 19:42:06 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 21:33:05 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 #include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(fd, s, len);
+	write(fd, s, ft_strlen(s));
 }

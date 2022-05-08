@@ -6,19 +6,14 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 19:47:06 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/16 19:49:06 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 21:33:57 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	size_t len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(fd, s, len);
-	write(fd, "\n", 1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
