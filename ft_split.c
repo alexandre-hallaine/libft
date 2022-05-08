@@ -6,89 +6,51 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 17:12:00 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/24 15:30:25 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 21:06:33 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-static size_t	ft_count(char const *s, char c)
+char	**tabcat(char **tab, char *str)
 {
-	size_t	index;
 	size_t	len;
-	size_t	count;
+	char	**tmp;
 
-	index = 0;
 	len = 0;
-	count = 0;
-	while (s[index + len])
-	{
-		if (s[index + len] == c)
-			if (len)
-			{
-				count++;
-				index += len;
-				len = 0;
-			}
-			else
-				index++;
-		else
-			len++;
-	}
-	if (len)
-		return (count + 1);
-	return (count);
-}
-
-static char		*ft_write(char const *s, size_t index, size_t len)
-{
-	char	*str;
-	size_t	index1;
-
-	if (!(str = malloc(sizeof(char) * (len + 1))))
+	while (tab[len])
+		len++;
+	tmp = (char **)malloc(sizeof(char *) * (len + 2));
+	if (!tmp)
 		return (NULL);
-	index1 = 0;
-	while (s[index] && len--)
-		str[index1++] = s[index++];
-	str[index1] = 0;
-	return (str);
+	tmp[len] = str;
+	tmp[len + 1] = NULL;
+	while (len--)
+		tmp[len] = tab[len];
+	free(tab);
+	return (tmp);
 }
 
-static char		**ft_set(char const *s, char c, char **tab)
-{
-	size_t	index;
-	size_t	index1;
-	size_t	len;
-
-	index = 0;
-	index1 = 0;
-	len = 0;
-	while (s[index + len])
-	{
-		if (s[index + len] == c)
-			if (len)
-			{
-				tab[index1++] = ft_write(s, index, len);
-				index += len;
-				len = 0;
-			}
-			else
-				index++;
-		else
-			len++;
-	}
-	if (len)
-		tab[index1++] = ft_write(s, index, len);
-	tab[index1] = 0;
-	return (tab);
-}
-
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**tab;
+	char	*tmp;
 
-	if (!(tab = malloc(sizeof(char*) * (ft_count(s, c) + 1))))
+	tab = malloc(sizeof(char *));
+	if (tab == NULL)
 		return (NULL);
-	tab = ft_set(s, c, tab);
+	*tab = 0;
+	while (tab && s && *s)
+	{
+		tmp = ft_strchr(s, c);
+		if (!tmp)
+			tab = tabcat(tab, ft_strdup(s));
+		else if (tmp != s)
+			tab = tabcat(tab, ft_substr(s, 0, tmp - s));
+		s = tmp;
+		if (s)
+			++s;
+	}
 	return (tab);
 }
