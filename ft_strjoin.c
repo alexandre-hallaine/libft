@@ -6,12 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 18:27:24 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 16:20:21 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 21:20:48 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+
+#include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

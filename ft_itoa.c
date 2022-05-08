@@ -6,67 +6,34 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 19:01:37 by ahallain          #+#    #+#             */
-/*   Updated: 2019/10/23 17:54:30 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/08 21:20:31 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 #include <stdlib.h>
 
-static size_t	ft_count(int n)
+// without free (for malloc)
+
+char	*ft_itoa(int n)
 {
-	size_t count;
+	char	*str;
 
-	count = 0;
-	if (n < 0)
-	{
-		count++;
-		if (n == -2147483648)
-		{
-			count++;
-			n = 147483648;
-		}
-		else
-			n *= -1;
-	}
-	while (n > 9)
-	{
-		count++;
-		n /= 10;
-	}
-	return (count + 1);
-}
-
-static char		*ft_setnbr(int n, char *nbr)
-{
-	size_t	index;
-
-	index = 0;
-	if (n < 0)
-	{
-		nbr[index++] = '-';
-		if (n == -2147483648)
-		{
-			nbr[index++] = '2';
-			n = 147483648;
-		}
-		else
-			n *= -1;
-	}
-	nbr[ft_count(n) + index] = 0;
-	while (n > 9)
-	{
-		nbr[ft_count(n) - 1 + index] = n % 10 + '0';
-		n /= 10;
-	}
-	nbr[index] = n % 10 + '0';
-	return (nbr);
-}
-
-char			*ft_itoa(int n)
-{
-	char *nbr;
-
-	if (!(nbr = malloc(ft_count(n) + 1)))
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	str = malloc(sizeof(char) * 2);
+	if (!str)
 		return (NULL);
-	return (ft_setnbr(n, nbr));
+	str[1] = '\0';
+	if (n < 0)
+	{
+		*str = '-';
+		str = ft_strjoin(str, ft_itoa(-n));
+	}
+	else if (n >= 10)
+		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
+	else
+		*str = n + '0';
+	return (str);
 }
