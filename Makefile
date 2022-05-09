@@ -1,4 +1,5 @@
 NAME	=	libft.a
+DYNAMIC	=	$(NAME:.a=.so)
 
 SRC		=	ft_isalpha.c \
 			ft_isdigit.c \
@@ -35,12 +36,14 @@ SRC		=	ft_isalpha.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c
 
-OBJ		=	${SRC:.c=.o}
+OBJ		=	$(SRC:.c=.o)
 
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -ofast
 
 all: $(NAME)
+
+so: $(DYNAMIC) clean
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
@@ -48,16 +51,17 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
+$(DYNAMIC): $(OBJ)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	$(CC) -nostartfiles -shared -o libft.so $(OBJ)
+
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(DYNAMIC)
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	$(CC) -nostartfiles -shared -o libft.so $(OBJ)
-
-.PHONY:	all clean fclean re so
+.PHONY:	all so clean fclean re
