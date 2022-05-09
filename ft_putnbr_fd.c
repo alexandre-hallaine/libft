@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 19:51:46 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 21:36:20 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/09 11:44:25 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	if (n == -2147483648)
+		return (ft_putstr_fd("-2147483648", fd));
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		if (n == -2147483648)
-		{
-			ft_putchar_fd('2', fd);
-			n = -147483648;
-		}
 		n *= -1;
 	}
 	if (n > 9)
