@@ -43,7 +43,7 @@ CFLAGS	=	-Wall -Wextra -Werror -ofast
 
 all: $(NAME)
 
-so: $(DYNAMIC) clean
+so: $(DYNAMIC)
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
