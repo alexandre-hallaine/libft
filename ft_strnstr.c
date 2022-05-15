@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:09:55 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 11:39:28 by ahallain         ###   ########.fr       */
+/*   Updated: 2022/05/16 01:54:13 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *)big);
 	little_len = ft_strlen(little);
 	while (*big && len-- >= little_len)
-	{
-		if (ft_strncmp(big, little, little_len) == 0)
-			return ((char *)big);
-		++big;
-	}
+		if (ft_strncmp(big++, little, little_len) == 0)
+			return ((char *)big - 1);
 	return (NULL);
 }

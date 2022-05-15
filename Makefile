@@ -46,17 +46,21 @@ all: $(NAME)
 so: $(DYNAMIC)
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	@echo "\e[1;33mCompiling\e[0m $<"
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
+	@echo "\e[1;32mLinking\e[0m $@"
 	ar rcs $(NAME) $(OBJ)
 
 $(DYNAMIC): $(OBJ)
+	@echo "\e[1;32mLinking\e[0m $@"
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
 	$(CC) -nostartfiles -shared -o libft.so $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	@echo "\e[1;31mCleaning\e[0m"
+	rm -f $(OBJ) fast
 
 fclean: clean
 	rm -f $(NAME)
@@ -64,4 +68,10 @@ fclean: clean
 
 re: fclean all
 
+run: all
+	@echo "\e[1;34mRunning\e[0m"
+	$(CC) main.c -L. -lft -o out
+	./out
+
 .PHONY:	all so clean fclean re
+.SILENT:
