@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:34:17 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 00:18:38 by ahallain         ###   ########.fr       */
+/*   Updated: 2024/01/26 17:58:04 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	while (n--)
-		if (*(char *)s++ == c)
+		if (*(char *)s++ == (char)c)
 			return ((void *)--s);
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:07:57 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/09 11:41:37 by ahallain         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:09:07 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *nptr)
 {
-	char	sign;
+	int		sign;
 	ssize_t	nbr;
 
 	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))

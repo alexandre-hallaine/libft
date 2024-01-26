@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 17:25:47 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/09 11:20:54 by ahallain         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:29:45 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
+	size_t	s_len;
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	s_len = ft_strlen(s);
+	if (start > s_len)
 		return (ft_strdup(""));
+	if (len > s_len - start)
+		len = s_len - start;
 	str = malloc(sizeof(char) * (len + 1));
 	s += start;
 	if (str)

@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 17:12:00 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 21:20:42 by ahallain         ###   ########.fr       */
+/*   Updated: 2024/01/26 19:09:48 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	**ft_split(char const *s, char c)
 	tab = malloc(sizeof(char *));
 	if (tab == NULL)
 		return (NULL);
-	*tab = 0;
+	*tab = NULL;
 	while (tab && s && *s)
 	{
 		tmp = ft_strchr(s, c);
@@ -50,7 +50,7 @@ char	**ft_split(char const *s, char c)
 		else if (tmp != s)
 			tab = tabcat(tab, ft_substr(s, 0, tmp - s));
 		s = tmp;
-		if (s)
+		if (s && *s)
 			++s;
 	}
 	return (tab);
