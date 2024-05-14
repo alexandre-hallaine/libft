@@ -1,41 +1,65 @@
-# libft - 42 Paris Project
+# libft - Your C Standard Library Reinvented
 
-## Overview
+**libft** is a custom implementation of standard C library functions, designed to provide a solid foundation for C programming projects. This library not only replicates essential functions like string manipulation and memory management but also includes additional utilities to enhance your coding experience.
 
-This is the `libft` project, a fundamental project at 42 Paris that serves as the building block for many others. The goal of this project is to create a library of various C functions that can be reused in future projects, providing a solid foundation for your programming endeavors.
+## Key Features
 
-## Contents
+* **Standard Library Functions:**  Replicates a wide range of standard C functions, providing familiarity and flexibility.
+* **Additional Utilities:** Includes extra functions for tasks like string splitting, character conversion, and more.
+* **Educational Value:** Ideal for learning how standard library functions are implemented under the hood.
+* **Customization:** Easily adaptable to your specific project requirements.
 
-The `libft` library includes functions categorized into different sections:
+## Function Categories
 
-- **Libc Functions:** Reimplementations of standard C library functions.
-- **Additional Functions:** Custom functions that expand the functionality of the library.
+* **Memory Functions:** `ft_memset`, `ft_memcpy`, `ft_memmove`, etc.
+* **String Functions:** `ft_strlen`, `ft_strchr`, `ft_strjoin`, `ft_split`, etc.
+* **Character Functions:** `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, etc.
+* **Integer/Conversion Functions:** `ft_atoi`, `ft_itoa`, etc.
+* **Output Functions:** `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, etc.
 
-## How to Use
+## How to Build and Use
 
-1. Clone the repository.
+1. **Clone the Repository:**
    ```bash
-   git clone <repository_url>
+   git clone https://your-repository-url/libft.git
    ```
 
-2. Compile the library.
+2. **Build with Meson:**
    ```bash
-   make
+   cd libft
+   meson setup builddir
+   meson compile -C builddir
    ```
 
-3. Include the library in your project.
-   ```c
-   #include "libft.h"
-   ```
-
-4. Link the library during compilation.
+3. **Install (Optional):**
    ```bash
-   gcc -o your_program your_program.c -L. -lft
+   sudo meson install -C builddir
    ```
 
-5. Start using the functions in your code.
+4. **Link the Library:**
+   In your C projects, add `-L /path/to/libft -lft` to your compiler flags.
 
-## Additional Notes
+## Example Usage
 
-- The `Makefile` provided automates the compilation process.
-- The project emphasizes code reusability and follows the 42 norm, a set of rules for coding style and behavior.
+```c
+#include "libft.h"
+#include <stdio.h> // For printf
+
+int main() {
+    char *message = "Welcome to libft!";
+    size_t length = ft_strlen(message);
+
+    printf("The message '%s' has %zu characters.\n", message, length);
+
+    return 0;
+}
+```
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgements
+
+* Inspired by the standard C library.
+* Special thanks to [Meson Build System](https://mesonbuild.com/).
