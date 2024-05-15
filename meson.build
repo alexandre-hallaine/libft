@@ -43,4 +43,9 @@ lib = library('ft', src,
     include_directories: inc,
     install: true)
 
+ft = declare_dependency(
+    include_directories: inc,
+    link_with: lib
+)
+
 install_headers('include/ft.h')
