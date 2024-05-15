@@ -40,4 +40,7 @@ src = files(
 inc = include_directories('include')
 
 lib = library('ft', src,
-    include_directories: inc)
+    include_directories: inc,
+    install: true)
+
+install_headers('include/ft.h')
