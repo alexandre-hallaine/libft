@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 16:02:14 by ahallain          #+#    #+#             */
-/*   Updated: 2024/01/26 18:00:19 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/14 17:50:22 by ahallain          #+#    #+#             */
+/*   Updated: 2024/01/26 18:25:02 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-char	*ft_strrchr(const char *s, int c)
+#include <stdlib.h>
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	index;
+	void	*tab;
 
-	index = ft_strlen(s);
-	if (!c)
-		return ((char *)s + index);
-	while (index--)
-		if (s[index] == (char)c)
-			return ((char *)s + index);
-	return (NULL);
+	if (size && count > (size_t)-1 / size)
+		return (NULL);
+	count *= size;
+	tab = malloc(count);
+	if (tab)
+		ft_bzero(tab, count);
+	return (tab);
 }

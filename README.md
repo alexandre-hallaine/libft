@@ -1,60 +1,98 @@
-# libft - Your Foundation for C
+# FortyTwo Library
 
-**libft** is a custom C library meticulously crafted to empower your C programming endeavors. It serves as a robust foundation, providing re-implementations of standard C library functions alongside a collection of supplementary utility functions.
+Empower your 42 school projects with the FortyTwo Library!
 
 ## Function Categories
 
-|Memory Functions|String Functions|Character Functions|Integer/Conversion Functions|Output Functions|
-|:---|:---|:---|:---|:---|
-|`ft_memset`|`ft_strlen`|`ft_isalpha`|`ft_atoi`|`ft_putchar_fd`|
-|`ft_bzero`|`ft_strchr`|`ft_isdigit`|`ft_itoa`|`ft_putstr_fd`|
-|`ft_memcpy`|`ft_strjoin`|`ft_isalnum`| |`ft_putendl_fd`|
-|`ft_memccpy`|`ft_split`|`ft_isascii`| |`ft_putnbr_fd`|
-|`ft_memmove`|`ft_strlcpy`|`ft_isprint`| | |
-|`ft_memchr`|`ft_strlcat`|`ft_toupper`| | |
-|`ft_memcmp`|`ft_strnstr`|`ft_tolower`| | |
-|`ft_calloc`|`ft_strncmp`| | | |
-| |`ft_strdup`| | | |
-| |`ft_substr`| | | |
-| |`ft_strtrim`| | | |
-| |`ft_strmapi`| | | |
-| |`ft_striteri`| | | |
+The FortyTwo Library provides functions in two main categories:
 
-## Building and Using libft
+* **Essential C Functions:**  Reimagined and improved versions of standard C library functions, with added error handling and enhanced robustness. 
+* **Helper Functions:** A collection of utilities designed to simplify common tasks and streamline your development workflow.
 
-1.  **Build with Meson:**
-    ```bash
-    meson setup build
-    meson compile -C build
-    ```
+<details>
+  <summary>Function Table</summary>
 
-2.  **Install (Optional):**
-    ```bash
-    sudo meson install -C build
-    ```
+|Character|Integer|Memory|Output|String|
+|-|-|-|-|-|
+|`ft_isalnum`|`ft_atoi`|`ft_bzero`|`ft_putchar_fd`|`ft_split`|
+|`ft_isalpha`|`ft_itoa`|`ft_calloc`|`ft_putendl_fd`|`ft_strchr`|
+|`ft_isascii`| |`ft_memchr`|`ft_putnbr_fd`|`ft_strdup`|
+|`ft_isdigit`| |`ft_memcmp`|`ft_putstr_fd`|`ft_striteri`|
+|`ft_isprint`| |`ft_memcpy`| |`ft_strjoin`|
+|`ft_tolower`| |`ft_memmove`| |`ft_strlcat`|
+|`ft_toupper`| |`ft_memset`| |`ft_strlcpy`|
+| | | | |`ft_strlen`|
+| | | | |`ft_strmapi`|
+| | | | |`ft_strncmp`|
+| | | | |`ft_strnstr`|
+| | | | |`ft_strrchr`|
+| | | | |`ft_strtrim`|
+| | | | |`ft_substr`|
 
-3.  **Link the Library:**
-    In your C projects, add `-L /path/to/libft -lft` to your compiler flags.
+_For detailed descriptions and usage examples, please refer to the 42 `libft` subject documentation._
+</details>
 
-## Example Usage
+## Usage
+
+**Prerequisites:**
+
+* A C compiler (e.g., `gcc`, `clang`)
+* Meson build system
+
+**Build Instructions:**
+
+1. **Configure Build:**
+
+   ```bash
+   meson setup build
+   ```
+
+2. **Compile:**
+
+   ```bash
+   meson compile -C build
+   ```
+
+**Important Note for 42 Students:**
+
+Installing the library is **NOT recommended** as it may conflict with the requirements of 42 projects, which often need to run without external library dependencies. Instead, you can directly link the library to your projects.
+
+**Linking:**
+
+To use the FortyTwo Library in your project, add the following flags to your C compiler command:
+
+```bash
+gcc main.c -Lbuild/ -lft 
+```
+
+* **`-Lbuild/`:**  This flag tells the compiler to look for the library in the `build` directory (adjust the path if necessary).
+* **`-lft`:**  This flag specifies the library to link against (in this case, the FortyTwo library, named `libft`).
+
+## Example
+
+Here's a simple example using the `ft_strlen` function from the FortyTwo Library:
 
 ```c
-#include "ft.h"
+#include "forty_two.h" // Include the library header 
 #include <stdio.h>
 
 int main() {
-    char *original = " This is a sample string.  ";
-    char *trimmed = ft_strtrim(original, " ");
+    char *str = "Hello, 42!";
+    int length = ft_strlen(str);
 
-    printf("Original: '%s'\n", original);
-    printf("Trimmed: '%s'\n", trimmed);
-
-    free(trimmed); // Free memory allocated by ft_strtrim
-
+    printf("The length of the string is: %d\n", length); 
     return 0;
 }
 ```
 
+## Testing 
+
+We utilize the excellent `libftTester` project developed by Tripouille for rigorous testing of our library. A big thank you to Tripouille for creating this valuable resource for the 42 community!
+
+You can find the `libftTester` project on GitHub: [https://github.com/Tripouille/libftTester](https://github.com/Tripouille/libftTester)
+
+**Important Note:** The `libftTester` is a separate project and is not included with this library. You'll need to download and set it up according to its instructions.
+
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.  See the [LICENSE](LICENSE) file for details.

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:19:10 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/05 02:25:39 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/11 16:02:14 by ahallain          #+#    #+#             */
+/*   Updated: 2024/01/26 18:00:19 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-int	ft_isalnum(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	size_t	index;
+
+	index = ft_strlen(s);
+	if (!c)
+		return ((char *)s + index);
+	while (index--)
+		if (s[index] == (char)c)
+			return ((char *)s + index);
+	return (NULL);
 }

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 19:38:39 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/05 05:26:40 by ahallain         ###   ########.fr       */
+/*   Created: 2022/05/08 21:26:45 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/09 11:40:20 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	len;
+	size_t	index;
 
-	len = ft_strlen(dst);
-	if (len > size)
-		return (size + ft_strlen(src));
-	return (len + ft_strlcpy(dst + len, src, size - len));
+	if (!s || !f)
+		return ;
+	index = 0;
+	while (*s)
+		f(index++, s++);
 }

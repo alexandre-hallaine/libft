@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 19:01:10 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/09 11:06:05 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/15 18:27:24 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/08 21:20:48 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+#include <stdlib.h>
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (dest == 0 && src == 0)
+	char	*str;
+	size_t	len_s1;
+	size_t	len_s2;
+
+	if (!s1 || !s2)
 		return (NULL);
-	if (dest < src)
-		return (ft_memcpy(dest, src, n));
-	else
-		while (n--)
-			((char *)dest)[n] = ((char *)src)[n];
-	return (dest);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	str = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
+	if (str)
+	{
+		ft_strlcpy(str, s1, len_s1 + 1);
+		ft_strlcat(str, s2, len_s1 + len_s2 + 1);
+	}
+	return (str);
 }

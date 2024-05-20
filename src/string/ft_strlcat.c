@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 18:27:24 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 21:20:48 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/12 19:38:39 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/05 05:26:40 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-#include <stdlib.h>
-
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	*str;
-	size_t	len_s1;
-	size_t	len_s2;
+	size_t	len;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	str = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (str)
-	{
-		ft_strlcpy(str, s1, len_s1 + 1);
-		ft_strlcat(str, s2, len_s1 + len_s2 + 1);
-	}
-	return (str);
+	len = ft_strlen(dst);
+	if (len > size)
+		return (size + ft_strlen(src));
+	return (len + ft_strlcpy(dst + len, src, size - len));
 }

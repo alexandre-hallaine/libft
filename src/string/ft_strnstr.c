@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 18:38:18 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/09 11:42:32 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/14 16:09:55 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/16 01:54:13 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	len;
+	size_t	little_len;
 
-	if (!s1)
-		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (len && ft_strchr(set, s1[len - 1]))
-		len--;
-	return (ft_substr(s1, 0, len));
+	if (!*little)
+		return ((char *)big);
+	little_len = ft_strlen(little);
+	while (*big && len-- >= little_len)
+		if (ft_strncmp(big++, little, little_len) == 0)
+			return ((char *)big - 1);
+	return (NULL);
 }

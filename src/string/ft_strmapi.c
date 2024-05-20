@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 17:25:47 by ahallain          #+#    #+#             */
-/*   Updated: 2024/01/26 18:29:45 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/20 19:06:33 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/09 11:39:44 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
 #include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
-	size_t	s_len;
+	size_t	len;
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start > s_len)
-		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
+	len = ft_strlen(s);
 	str = malloc(sizeof(char) * (len + 1));
-	s += start;
-	if (str)
-		ft_strlcpy(str, s, len + 1);
+	if (!str)
+		return (NULL);
+	str[len] = 0;
+	while (len--)
+		str[len] = f(len, s[len]);
 	return (str);
 }

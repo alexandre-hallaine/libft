@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 19:47:06 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/08 21:33:57 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/10 15:19:10 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/05 02:25:39 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_isalnum(int c)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

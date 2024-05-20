@@ -1,9 +1,18 @@
 # Build artifacts
-build
+build/
+
+# Object files
 *.o
 
-# Editor and IDE files
+# Executable files
+*.out
+
+# Dependency files
+*.pc
+
+# Backup files created by editors
+*.~
 *.swp
-.vscode/
-.idea/
-*.DS_Store
+
+# macOS-specific files
+.DS_Store

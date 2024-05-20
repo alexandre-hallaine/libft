@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 17:50:22 by ahallain          #+#    #+#             */
-/*   Updated: 2024/01/26 18:25:02 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/15 18:38:18 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/09 11:42:32 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-#include <stdlib.h>
-
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	void	*tab;
+	size_t	len;
 
-	if (size && count > (size_t)-1 / size)
+	if (!s1)
 		return (NULL);
-	count *= size;
-	tab = malloc(count);
-	if (tab)
-		ft_bzero(tab, count);
-	return (tab);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	len = ft_strlen(s1);
+	while (len && ft_strchr(set, s1[len - 1]))
+		len--;
+	return (ft_substr(s1, 0, len));
 }

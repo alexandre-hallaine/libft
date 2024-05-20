@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 16:09:55 by ahallain          #+#    #+#             */
-/*   Updated: 2022/05/16 01:54:13 by ahallain         ###   ########.fr       */
+/*   Created: 2019/10/14 17:59:13 by ahallain          #+#    #+#             */
+/*   Updated: 2022/05/08 21:20:45 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "forty_two.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+#include <stdlib.h>
+
+char	*ft_strdup(const char *s1)
 {
-	size_t	little_len;
+	size_t	len;
+	char	*tab;
 
-	if (!*little)
-		return ((char *)big);
-	little_len = ft_strlen(little);
-	while (*big && len-- >= little_len)
-		if (ft_strncmp(big++, little, little_len) == 0)
-			return ((char *)big - 1);
-	return (NULL);
+	len = ft_strlen(s1) + 1;
+	tab = malloc(len);
+	if (tab)
+		ft_strlcpy(tab, s1, len);
+	return (tab);
 }
