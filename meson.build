@@ -43,7 +43,7 @@ src = files(
 
 inc = include_directories('include')
 
-lib = library('ft', src,
+lib = static_library('ft', src,
     include_directories: inc,
     install: true)
 
